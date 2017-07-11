@@ -23,10 +23,14 @@
     </style>
 </head>
 <body>
-<audio autoplay="autopaly">
-    <source src="bgmusic.mp3" type="audio/mp3"/>
+<audio id="audio" autoplay="autoplay">
+    <source src="music_1.mp3" type="audio/mp3"/>
 </audio>
 <div id="main">
+    <div id="link-area">
+        <!--<a class="previous" href="letter_2.html">上一封</a>-->
+        <a class="next" href="letter_2.html">下一封</a>
+    </div>
     <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a
             href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
             href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
@@ -48,19 +52,13 @@
                     <span class="say">我对你的喜欢可以写整整八百字</span><br><br>
                     <span class="say">这么多喜欢加起来就是我爱你，希望你也恰好爱我</span><br><br>
                     <span class="say">这些喜欢对你说过千遍万遍，但是当我把它写下来的时候</span><br><br>
-                    <span class="say">你要知道我一定是真心实意的</span><br>
-										<span class="you"><span class="space"></span>—— 爱你的王星云</span>
-                </font></p>
+                    <span class="say">你要知道我一定是真心实意的</span><br><br>
+                    <span class="you"><span class="space"></span>—— 爱你的王星云</span>
+                </font>
             </div>
         </div>
-        <!--<div id="clock-box">-->
-            <!--<span class="STYLE1"></span><font color="#33CC00">亲爱的小寒，我喜欢你</font>-->
-            <!--<span class="STYLE1">已经是……</span>-->
-            <!--<div id="clock"></div>-->
-        <!--</div>-->
         <canvas id="canvas" width="1100" height="680"></canvas>
     </div>
-
 </div>
 
 <script>
@@ -140,16 +138,16 @@
         var seedAnimate = eval(Jscex.compile("async", function () {
             seed.draw();
             while (hold) {
-                $await(Jscex.Async.sleep(10));
+                $await(Jscex.Async.sleep(5));
             }
             while (seed.canScale()) {
                 seed.scale(0.95);
-                $await(Jscex.Async.sleep(10));
+                $await(Jscex.Async.sleep(5));
             }
             while (seed.canMove()) {
                 seed.move(0, 2);
                 foot.draw();
-                $await(Jscex.Async.sleep(10));
+                $await(Jscex.Async.sleep(5));
             }
         }));
 
@@ -174,6 +172,7 @@
                 $await(Jscex.Async.sleep(10));
             }
             foot.draw();
+            document.getElementById("link-area").style.display="block";
             tree.snapshot("p2", 500, 0, 610, 680);
 
             // 会有闪烁不得意这样做, (＞﹏＜)

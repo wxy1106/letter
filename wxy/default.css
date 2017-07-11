@@ -9,6 +9,9 @@ a {color:#000;font-size:14px;}
 #clock{margin-left:48px;}
 #clock .digit {font-size:64px;}
 #canvas{margin:0 auto;width:1100px;height:680px;}
+#link-area {position:relative;top:650px;font-size:12px;z-index:999;display:none}
+#link-area .next {position:absolute;left:1055px;}
+#link-area .previous {position:absolute;left:930px;}
 #error{margin:0 auto;text-align:center;margin-top:60px;display:none;}
 .hand{cursor:pointer;}
 .say{margin-left:5px;}
